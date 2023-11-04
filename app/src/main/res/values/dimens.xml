@@ -1,0 +1,12 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+<!--    The size of the text-->
+    <dimen name="auth_title">26sp</dimen>
+    <dimen name="auth_switch">15sp</dimen>
+    <dimen name="auth_tv">12sp</dimen>
+    <dimen name="auth_et">16sp</dimen>
+    <dimen name="auth_btn">16sp</dimen>
+</resources>
