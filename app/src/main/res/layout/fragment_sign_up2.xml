@@ -1,13 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.auth.SignUp2Fragment">
 
-    <TextView
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginRight="14dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Регистрация"
+            android:textColor="@color/new_black"
+            android:textSize="@dimen/auth_title" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingBottom="3dp"
+            android:text="Имя(Наименование)"
+            android:textColor="#04111F"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="361dp"
+            android:layout_height="47dp"
+            android:background="@drawable/input_bg"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Майк Тайсон"
+            android:inputType="text"
+            android:padding="14dp"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingBottom="3dp"
+            android:text="Email"
+            android:textColor="#04111F"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="361dp"
+            android:layout_height="47dp"
+            android:background="@drawable/input_bg"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="example@gmail.com"
+            android:inputType="textEmailAddress"
+            android:padding="14dp"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingBottom="3dp"
+            android:text="Номер телефона"
+            android:textColor="#04111F"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_number"
+            android:layout_width="361dp"
+            android:layout_height="47dp"
+            android:background="@drawable/input_bg"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="+996 999 999 999"
+            android:inputType="number"
+            android:padding="14dp"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_inn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingBottom="3dp"
+            android:text="ИНН (ID)"
+            android:textColor="#04111F"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_inn"
+            android:layout_width="361dp"
+            android:layout_height="47dp"
+            android:background="@drawable/input_bg"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="2215151515000"
+            android:inputType="number"
+            android:padding="14dp"
+            android:textSize="14dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="34dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:id="@+id/terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="I've read and agree with the Terms and Conditions and the Privacy Policy."
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="361dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_def"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Далее"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_auth3">
+
+            <TextView
+                android:id="@+id/tv_acc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingEnd="10dp"
+                android:text="У вас уже есть аккаунт?"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_signin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Войти"
+                android:textColor="#0A5BBA"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

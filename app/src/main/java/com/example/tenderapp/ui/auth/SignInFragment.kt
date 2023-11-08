@@ -1,12 +1,9 @@
 package com.example.tenderapp.ui.auth
 
-import android.content.Context
-import android.graphics.Color
 import android.graphics.Typeface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputFilter.LengthFilter
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -76,6 +73,16 @@ class SignInFragment : Fragment() {
         }
 
         checkFields()
+
+        //Forgot password listener
+        binding.btnAuth3.setOnClickListener {
+            if (binding.etEmail.text.toString() == "admin@gmail.com" && binding.etPass.text.toString() == "admin") {
+                Toast.makeText(activity, "You are signed in!", Toast.LENGTH_SHORT).show()
+                it.findNavController().navigate(R.id.navigation_tender)
+            }else{
+                Toast.makeText(activity, "The login or password is incorrect!", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         //SignUp textview listener
         binding.tvSignup.setOnClickListener {

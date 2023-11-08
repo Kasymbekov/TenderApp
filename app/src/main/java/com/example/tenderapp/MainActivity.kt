@@ -1,21 +1,15 @@
 package com.example.tenderapp
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.JsonObjectRequest
 import com.example.tenderapp.databinding.ActivityMainBinding
-import com.example.tenderapp.ui.auth.SignInFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.json.JSONException
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_tender, R.id.navigation_news, R.id.navigation_status, R.id.navigation_profile
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -43,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         //Hide actionbar
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.signInFragment || destination.id == R.id.forgotPassFragment || destination.id == R.id.signUpFragment) {
+            if (destination.id == R.id.signInFragment || destination.id == R.id.forgotPassFragment || destination.id == R.id.signUpFragment || destination.id == R.id.signUp2Fragment || destination.id == R.id.signUp3Fragment || destination.id == R.id.signUp4Fragment) {
                 supportActionBar?.hide()
                 //Hide bottom nav bar
                 navView.visibility = View.GONE

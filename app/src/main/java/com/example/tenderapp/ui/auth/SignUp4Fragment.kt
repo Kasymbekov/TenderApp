@@ -6,13 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.tenderapp.R
+import com.example.tenderapp.databinding.FragmentSignUp3Binding
+import com.example.tenderapp.databinding.FragmentSignUp4Binding
 
 class SignUp4Fragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SignUp4Fragment()
-    }
+    private var _binding: FragmentSignUp4Binding? = null
+    private val binding get() = _binding!!
 
     private lateinit var viewModel: SignUp4ViewModel
 
@@ -20,13 +23,23 @@ class SignUp4Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_sign_up4, container, false)
+        val fragmentSignUp4ViewModel = ViewModelProvider(this)[SignUp4ViewModel::class.java]
+
+        _binding = FragmentSignUp4Binding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        //Back button implementation
+        binding.ivBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+        //Send code
+        binding.tvCode.setOnClickListener {
+            Toast.makeText(activity, "The code has been sent.", Toast.LENGTH_SHORT).show()
+        }
+
+        return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SignUp4ViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

@@ -6,13 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.tenderapp.R
+import com.example.tenderapp.databinding.FragmentSignUp2Binding
+import com.example.tenderapp.databinding.FragmentSignUp3Binding
 
 class SignUp3Fragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SignUp3Fragment()
-    }
+    private var _binding: FragmentSignUp3Binding? = null
+    private val binding get() = _binding!!
 
     private lateinit var viewModel: SignUp3ViewModel
 
@@ -20,13 +23,23 @@ class SignUp3Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_sign_up3, container, false)
+        val fragmentSignUp3ViewModel = ViewModelProvider(this)[SignUp3ViewModel::class.java]
+
+        _binding = FragmentSignUp3Binding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        //Next btn listener
+        binding.btnNext.setOnClickListener {
+            it.findNavController().navigate(R.id.signUp4Fragment)
+        }
+
+        //Back button implementation
+        binding.ivBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+        return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SignUp3ViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

@@ -1,18 +1,15 @@
 package com.example.tenderapp.ui.home
 
+import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.JsonObjectRequest
+import com.example.tenderapp.R
 import com.example.tenderapp.databinding.FragmentHomeBinding
-import org.json.JSONException
 
 class HomeFragment : Fragment() {
 
@@ -33,16 +30,49 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+//        val textView: TextView = binding.textHome
+//        homeViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+        //1st button implementation
+        binding.btnAuth.setOnClickListener {
+            binding.btnAuth.isClickable = false
+            binding.btnAuth2.isClickable = true
+            binding.btnAuth.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_switch_clicked)
+            binding.btnAuth2.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_switch2)
+
+            //Make text bold
+            binding.btnAuth.setTypeface(null, Typeface.BOLD)
+            binding.btnAuth2.setTypeface(null, Typeface.NORMAL)
         }
+
+        //2nd button implementation
+        binding.btnAuth2.setOnClickListener {
+            binding.btnAuth2.isClickable = false
+            binding.btnAuth.isClickable = true
+            binding.btnAuth2.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_switch_clicked2)
+            binding.btnAuth.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_switch)
+
+            //Make text bold
+            binding.btnAuth2.setTypeface(null, Typeface.BOLD)
+            binding.btnAuth.setTypeface(null, Typeface.NORMAL)
+        }
+
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
 }

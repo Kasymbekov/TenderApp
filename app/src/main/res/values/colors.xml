@@ -12,5 +12,6 @@
     <color name="new_black">#04111F</color>
     <color name="new_blue">#0A5BBA</color>
     <color name="color_switch">#ACCCF8</color>
+    <color name="light_blue">#FFC107</color>
     <color name="btn_blue">#0A5BBA</color>
 </resources>
